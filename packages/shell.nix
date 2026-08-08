@@ -8,7 +8,7 @@ let
   nixos-update = pkgs.writeShellScriptBin "nixos-update" ''
     set -euo pipefail
 
-    nh os switch --update-input nixpkgs /home/fark/.config/dots/nix
+    nh os switch --update-input nixpkgs /home/fark/.config/dots/nixdots
 
     # --keep 3 matches boot.loader.limine.maxGenerations so the boot menu
     # and generation cleanup stay in sync.
