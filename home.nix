@@ -56,7 +56,7 @@
     DOTS="$HOME/.config/dots/dots-common"
     if [ -d "$DOTS" ]; then
       (
-        flock -w 30 9
+        ${pkgs.util-linux}/bin/flock -w 30 9
         ${pkgs.stow}/bin/stow -d "$DOTS" -t "$HOME/.config" --restow \
           foot alacritty Thunar labwc mpv quickshell
         ${pkgs.stow}/bin/stow -d "$DOTS" -t "$HOME" --restow zsh
