@@ -36,6 +36,8 @@
     pavucontrol
     wlr-randr
     vscode
+    jq
+    zed-editor
   ];
 
   # Applies dots-common/ from the dotfiles repo via stow on every activation.
