@@ -58,7 +58,7 @@
       (
         ${pkgs.util-linux}/bin/flock -w 30 9
         ${pkgs.stow}/bin/stow -d "$DOTS" -t "$HOME/.config" --restow \
-          foot alacritty Thunar labwc mpv quickshell
+          foot alacritty Thunar labwc mpv quickshell niri
         ${pkgs.stow}/bin/stow -d "$DOTS" -t "$HOME" --restow zsh
         mkdir -p "$HOME/.local/share/themes"
         ${pkgs.stow}/bin/stow -d "$DOTS" -t "$HOME/.local/share/themes" --restow themes

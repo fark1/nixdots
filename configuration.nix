@@ -84,6 +84,11 @@
 
   programs.labwc.enable = true;
 
+  # Trying niri (scrollable-tiling compositor) alongside labwc - both
+  # register as selectable sessions in ly, labwc stays the default
+  # (services.displayManager.defaultSession below).
+  programs.niri.enable = true;
+
   # GPU/CPU overclock + fan curve control panel. Requires membership in the
   # "corectrl" group (see users.users.fark.extraGroups above) to run without
   # a password prompt each time.
