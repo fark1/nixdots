@@ -38,7 +38,7 @@
     vscode
     jq
     zed-editor
-
+    clang-tools
     gh #cant believe im installing a github cli bro
 
   ];
