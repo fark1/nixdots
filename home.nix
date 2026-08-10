@@ -38,6 +38,9 @@
     vscode
     jq
     zed-editor
+
+    gh #cant believe im installing a github cli bro
+
   ];
 
   xdg.configFile."clangd/config.yaml".text = ''
