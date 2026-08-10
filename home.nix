@@ -40,6 +40,19 @@
     zed-editor
   ];
 
+  xdg.configFile."clangd/config.yaml".text = ''
+    If:
+      Lang: C
+    CompileFlags:
+      Compiler: gcc
+    ---
+    If:
+      Lang: CXX
+    CompileFlags:
+      Compiler: g++
+  '';
+
+
   # Applies dots-common/ from the dotfiles repo via stow on every activation.
   # Assumes the repo is cloned to ~/.config/dots (same path on every machine).
   # zsh targets $HOME directly since that's where .zshrc/.zshenv are read from;
