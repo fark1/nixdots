@@ -11,6 +11,7 @@
       ./gaming.nix
       ./packages/fonts.nix
       ./packages/shell.nix
+      ./packages/dev-tools.nix
     ];
 
   # Bootloader.
