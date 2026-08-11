@@ -182,7 +182,7 @@
     # Ported from the Artix pacman -Qe list (explicitly-installed packages).
     # Themes (phinger-cursors comes in via home.pointerCursor in home.nix)
     adw-gtk3
-    
+
     # General utilities
     btop
     rsync
@@ -207,8 +207,14 @@
     gcc
     gnumake
     fd
+    rustc
+    cargo
+    rustfmt
+    clippy
+    rust-analyzer
+
   ];
-  
+
 
 
 
