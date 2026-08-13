@@ -41,7 +41,8 @@
     clang-tools
     gh #cant believe im installing a github cli bro
     gram
-    vesktop 
+    vesktop
+    fzf
 
   ];
 
