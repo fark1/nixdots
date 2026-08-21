@@ -204,6 +204,8 @@
     vulkan-tools
     tixati
     config.boot.kernelPackages.cpupower
+    unzip
+
     # Dev tooling
     clang
     cmake
