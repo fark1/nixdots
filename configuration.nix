@@ -207,6 +207,8 @@
     unzip
     rar
     unrar
+    xarchiver
+    thunar-archive-plugin
 
     # Dev tooling
     clang
