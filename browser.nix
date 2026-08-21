@@ -1,5 +1,4 @@
 { config, pkgs, lib, ... }:
-
 let
   # "Dark Theme" (AMO slug: perfectdarktheme) - the static theme extension
   # actually active in the real profile (extensions.activeThemeID). Not in
@@ -9,19 +8,15 @@ let
   perfectDarkTheme = pkgs.stdenvNoCC.mkDerivation {
     pname = "perfectdarktheme";
     version = "1.1";
-
     src = pkgs.fetchurl {
       url = "https://addons.mozilla.org/firefox/downloads/file/3879908/perfectdarktheme-1.1.xpi";
       sha256 = "a86f1b27e244d1d6330a2202da4789f302f4a8d9dda7e4157d239402a14d60bc";
     };
-
     dontUnpack = true;
-
     installPhase = ''
       mkdir -p $out
       cp $src "$out/{47a97a22-13b8-410a-9bd8-2bf689498872}.xpi"
     '';
-
     meta = {
       description = "Dark Theme - static LibreWolf/Firefox theme";
       homepage = "https://addons.mozilla.org/firefox/addon/perfectdarktheme/";
@@ -31,15 +26,12 @@ in
 {
   programs.librewolf = {
     enable = true;
-
     profiles.default = {
       isDefault = true;
-
       # Curated from the real prefs.js - only settings that read as genuine
       # deliberate choices, not LibreWolf's own hardened defaults or
       # ephemeral runtime state (timestamps, telemetry cache, sync
       # checkpoints, toolbar layout, etc all excluded).
-
       userChrome = ''
         :root {
           --toolbar-bgcolor: #101419 !important;
@@ -58,6 +50,12 @@ in
           --button-bgcolor: #282e33 !important;
           --sidebar-background-color: #22194d !important;
           --sidebar-text-color: #b6becc !important;
+
+          /* Kills the white separator line under the bookmarks toolbar /
+             between toolbar and page content - not covered by the vars
+             above, Firefox pulls it from this var independently. */
+          --chrome-content-separator-color: #101419 !important;
+          --toolbarseparator-color: #101419 !important;
         }
 
         /* Fallback: hit chrome elements directly so theming doesn't
@@ -70,6 +68,19 @@ in
           color: #b6becc !important;
         }
 
+        /* Bookmarks toolbar's own border - separate from the shared vars
+           above, this is what was showing as a light line under it. */
+        #PersonalToolbar {
+          border-top: none !important;
+          border-bottom: 1px solid #101419 !important;
+          box-shadow: none !important;
+        }
+
+        /* Kills the light vertical hairline between bookmark items. */
+        toolbarbutton.bookmark-item {
+          border-color: transparent !important;
+        }
+
         #tabbrowser-tabs .tabbrowser-tab {
           color: #b6becc !important;
         }
@@ -80,7 +91,6 @@ in
           color: #b6becc !important;
         }
       '';
-
       settings = {
         # Auto-enable extensions.packages below without a manual approval
         # step (recommended by the module docs for declarative extensions).
@@ -97,11 +107,9 @@ in
         "privacy.resistFingerprinting" = false;
         "sidebar.visibility" = "hide-sidebar";
         "privacy.sanitize.sanitizeOnShutdown" = false;
-        "webgl.disabled" = false; 
+        "webgl.disabled" = false;
       };
-
       extensions.packages = [ perfectDarkTheme ];
-
       search = {
         force = true;
         default = "ddg";
