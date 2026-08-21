@@ -18,6 +18,16 @@
   boot.loader.limine.enable = true;
   boot.loader.limine.efiSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+
+  boot.loader.limine.style = {
+
+    wallpapers = [ "/home/fark/.config/dots/dots-common/wallpapers/wallhaven-j318ey_1920x1080.png"];
+    wallpaperStyle = "stretched";
+
+
+  };
+
   # Keep 3 boot-menu entries per generation - matches the --keep 3 used by
   # `nh clean all` in the nixos-update script (packages/shell.nix) so the
   # Limine menu and the actual kept generations stay in sync.
@@ -103,8 +113,6 @@
   # Auto-login straight into labwc via ly, no password prompt.
   # Fine for a personal/VM box; revisit for a shared machine.
   services.displayManager.ly.enable = true;
-  services.displayManager.defaultSession = "labwc";
-  services.displayManager.autoLogin.user = "fark";
 
   # PipeWire audio, managed declaratively (the autostart script in
   # common/labwc/autostart skips its own manual pipewire launch when
