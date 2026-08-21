@@ -205,6 +205,8 @@
     tixati
     config.boot.kernelPackages.cpupower
     unzip
+    rar
+    unrar
 
     # Dev tooling
     clang
