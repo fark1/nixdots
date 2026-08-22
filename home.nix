@@ -58,7 +58,11 @@
       Compiler: g++
   '';
 
-
+  xdg.configFile."xdg-desktop-portal-wlr/config".text = ''
+    [screencast]
+    chooser_type=dmenu
+    chooser_cmd=fuzzel --dmenu
+  '';
   # Applies dots-common/ from the dotfiles repo via stow on every activation.
   # Assumes the repo is cloned to ~/.config/dots (same path on every machine).
   # zsh targets $HOME directly since that's where .zshrc/.zshenv are read from;

@@ -171,6 +171,19 @@
     extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
   };
 
+
+  xdg.portal.wlr.settings = {
+    screencast = {
+      chooser_type = "dmenu";
+      chooser_cmd = "fuzzel --dmenu";
+      max_fps = 30;
+    };
+  };
+
+
+
+
+  systemd.user.services.xdg-desktop-portal-wlr.path = [ pkgs.fuzzel ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [ # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
